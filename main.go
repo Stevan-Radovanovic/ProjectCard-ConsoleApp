@@ -9,8 +9,10 @@ import (
 
 func main() {
 	rand.Seed(time.Now().UnixNano())
-	cards := []string{initializeCard(), initializeCard(), initializeCard(), initializeCard(), initializeCard()}
-	iterateCards(cards)
+	var cards deck
+	//cards = deck{cards.newCard(), cards.newCard(), cards.newCard(), cards.newCard(), cards.newCard()}
+	cards = cards.initialize()
+	cards.iterate()
 }
 
 func initializeCard() string {
