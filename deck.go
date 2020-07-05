@@ -8,9 +8,9 @@ import (
 
 type deck []string
 
-func (d deck) iterate() {
+func (d deck) showDeck() {
 	for i, card := range d {
-		fmt.Println(i, card)
+		fmt.Println(i+1, card)
 	}
 }
 
@@ -20,11 +20,12 @@ func (d deck) newCard() string {
 	return "Attack: " + strconv.Itoa(attack) + " | Defence: " + strconv.Itoa(defence)
 }
 
-func (d deck) initialize() deck {
-	d = append(d, d.newCard())
-	d = append(d, d.newCard())
-	d = append(d, d.newCard())
-	d = append(d, d.newCard())
-	d = append(d, d.newCard())
+func initializeDeck() deck {
+
+	var d deck
+	for i := 0; i < 10; i++ {
+		d = append(d, d.newCard())
+	}
+
 	return d
 }

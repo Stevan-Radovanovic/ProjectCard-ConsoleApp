@@ -7,8 +7,7 @@ import (
 
 func main() {
 	rand.Seed(time.Now().UnixNano())
-	var cards deck
 	//cards = deck{cards.newCard(), cards.newCard(), cards.newCard(), cards.newCard(), cards.newCard()}
-	cards = cards.initialize()
-	cards.iterate()
+	cards := initializeDeck()
+	cards.showDeck()
 }
