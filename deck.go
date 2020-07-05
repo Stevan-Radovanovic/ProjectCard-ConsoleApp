@@ -20,12 +20,16 @@ func (d deck) newCard() string {
 	return "Attack: " + strconv.Itoa(attack) + " | Defence: " + strconv.Itoa(defence)
 }
 
-func initializeDeck() deck {
+func initializeUltimateDeck() deck {
 
 	var d deck
-	for i := 0; i < 10; i++ {
+	for i := 0; i < 50; i++ {
 		d = append(d, d.newCard())
 	}
 
 	return d
+}
+
+func (d deck) generateHand(handSize int) (deck, deck) {
+	return d[rand.Intn(50-handSize)+handSize:], d[rand.Intn(50-handSize)+handSize:]
 }
