@@ -8,6 +8,8 @@ import (
 
 func main() {
 
+	changePlayerName("Stevan Radovanovic")
+
 	fmt.Println("Starting...")
 	rand.Seed(time.Now().UnixNano())
 
