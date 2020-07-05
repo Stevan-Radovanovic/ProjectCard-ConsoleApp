@@ -1,15 +1,22 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math/rand"
+	"strconv"
+	"time"
+)
 
 func main() {
-	//var testCard string = "Attack 7 - Defence 5"
-	cards := []string{initializeCard(), initializeCard()}
+	rand.Seed(time.Now().UnixNano())
+	cards := []string{initializeCard(), initializeCard(), initializeCard(), initializeCard(), initializeCard()}
 	iterateCards(cards)
 }
 
 func initializeCard() string {
-	return "Attack X - Defence X"
+	attack := rand.Intn(15) + 1
+	defence := rand.Intn(15) + 1
+	return "Attack: " + strconv.Itoa(attack) + " | Defence: " + strconv.Itoa(defence)
 }
 
 func iterateCards(cards []string) {
