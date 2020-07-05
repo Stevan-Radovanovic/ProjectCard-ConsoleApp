@@ -31,5 +31,7 @@ func initializeUltimateDeck() deck {
 }
 
 func (d deck) generateHand(handSize int) (deck, deck) {
-	return d[rand.Intn(50-handSize)+handSize:], d[rand.Intn(50-handSize)+handSize:]
+	range1 := rand.Intn(50 - handSize)
+	range2 := rand.Intn(50 - handSize)
+	return d[range1 : range1+handSize], d[range2 : range2+handSize]
 }
