@@ -56,8 +56,9 @@ func playGame(card1 string, card2 string) bool {
 	if value1 > value2 {
 		fmt.Println("\nYou won this round!")
 		return true
-	} else {
-		fmt.Println("\nYou lost this round!")
-		return false
 	}
+
+	fmt.Println("\nYou lost this round!")
+	return false
+
 }

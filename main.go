@@ -9,6 +9,7 @@ import (
 func main() {
 
 	handsize := 5
+	currentHandSize := 5
 	var cardIndex int
 	var card1 string
 	var card2 string
@@ -33,11 +34,19 @@ func main() {
 		fmt.Println("\nCard index: ", cardIndex)
 		fmt.Println("\nYour opponent is choosing...")
 		deck1, card1 = deck1.removeCardByIndex(cardIndex - 1)
-		deck2, card2 = deck2.removeCardByIndex(rand.Intn(handsize))
+		deck2, card2 = deck2.removeCardByIndex(rand.Intn(currentHandSize))
+		currentHandSize--
 		if playGame(card1, card2) == true {
 			score1++
 		} else {
 			score2++
 		}
+	}
+
+	fmt.Println("\nCalculating results...")
+	if score1 > score2 {
+		fmt.Println("\nCongratulations, you've won!")
+	} else {
+		fmt.Println("\nOh no, you've lost!")
 	}
 }
