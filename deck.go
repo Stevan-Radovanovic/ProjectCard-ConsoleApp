@@ -36,8 +36,13 @@ func (d deck) generateHand(handSize int) (deck, deck) {
 	return d[range1 : range1+handSize], d[range2 : range2+handSize]
 }
 
-func (d deck) removeCardByIndex(index int) string {
-	return ""
+func (d deck) removeCardByIndex(index int) (deck, string) {
+
+	removed := d[index]
+	copy(d[index:], d[index+1:])
+	d[len(d)-1] = ""
+	d = d[:len(d)-1]
+	return d, removed
 }
 
 func playGame(card1 string, card2 string) bool {

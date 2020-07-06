@@ -10,6 +10,8 @@ func main() {
 
 	handsize := 5
 	var cardIndex int
+	var card1 string
+	var card2 string
 	score1 := 0
 	score2 := 0
 
@@ -23,16 +25,15 @@ func main() {
 	deck1, deck2 := cards.generateHand(handsize)
 
 	fmt.Println("\nGame is starting...")
-	deck1.showDeck()
-	deck2.showDeck()
 
 	for i := 0; i < handsize; i++ {
-		fmt.Println("Choose a card by index: ")
+		deck1.showDeck()
+		fmt.Println("\nChoose a card by index: ")
 		fmt.Scanf("%d\n", &cardIndex)
-		fmt.Println("Card index: ", cardIndex)
-		fmt.Println("Your opponent is choosing...")
-		card1 := deck1.removeCardByIndex(cardIndex - 1)
-		card2 := deck2.removeCardByIndex(rand.Intn(handsize))
+		fmt.Println("\nCard index: ", cardIndex)
+		fmt.Println("\nYour opponent is choosing...")
+		deck1, card1 = deck1.removeCardByIndex(cardIndex - 1)
+		deck2, card2 = deck2.removeCardByIndex(rand.Intn(handsize))
 		if playGame(card1, card2) == true {
 			score1++
 		} else {
