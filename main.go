@@ -51,7 +51,7 @@ func main() {
 		result := playGame(card1, card2, gameMode)
 		if result == 1 {
 			score1++
-		} else if result == 0 {
+		} else if result == -1 {
 			score2++
 		}
 		time.Sleep(2 * time.Second)
@@ -59,12 +59,17 @@ func main() {
 
 	fmt.Println("\nCalculating results...")
 	time.Sleep(4 * time.Second)
-	if score1 > score2 {
+
+	finalValue := score1 - score2
+
+	if finalValue > 0 {
 		fmt.Println("\nCongratulations, you've won!")
-	} else {
+	} else if finalValue < 0 {
 		fmt.Println("\nOh no, you've lost!")
+	} else {
+		fmt.Println("\nIt's a draw!")
 	}
 
 	fmt.Println("\nUpdating High Scores...")
-	updateStats(score1 > score2)
+	updateStats(finalValue)
 }

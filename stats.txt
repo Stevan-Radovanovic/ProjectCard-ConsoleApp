@@ -4,5 +4,9 @@ Games Played:
 1
 Games Won:
 1
+Games Drawn:
+0
 Games Lost:
 0
+Final Value Total Score:
+1

@@ -21,7 +21,7 @@ func changePlayerName(newName string) {
 	ioutil.WriteFile("stats.txt", []byte(output), 0644)
 }
 
-func updateStats(victory bool) {
+func updateStats(finalValue int) {
 	input, err := ioutil.ReadFile("stats.txt")
 	if err != nil {
 		fmt.Println("Error: ", err)
@@ -30,16 +30,23 @@ func updateStats(victory bool) {
 	lines := strings.Split(string(input), "\n")
 	numberOfGames, _ := strconv.Atoi(lines[3])
 	numberOfWins, _ := strconv.Atoi(lines[5])
-	numberOfLosses, _ := strconv.Atoi(lines[7])
+	numberOfDraws, _ := strconv.Atoi(lines[7])
+	numberOfLosses, _ := strconv.Atoi(lines[9])
+	totalValue, _ := strconv.Atoi(lines[11])
 	numberOfGames++
-	if victory == true {
+	if finalValue > 0 {
 		numberOfWins++
-	} else {
+	} else if finalValue < 0 {
 		numberOfLosses++
+	} else {
+		numberOfDraws++
 	}
+	totalValue += finalValue
 	lines[3] = strconv.Itoa(numberOfGames)
 	lines[5] = strconv.Itoa(numberOfWins)
-	lines[7] = strconv.Itoa(numberOfLosses)
+	lines[7] = strconv.Itoa(numberOfDraws)
+	lines[9] = strconv.Itoa(numberOfLosses)
+	lines[11] = strconv.Itoa(totalValue)
 	output := strings.Join(lines, "\n")
 	ioutil.WriteFile("stats.txt", []byte(output), 0644)
 }
