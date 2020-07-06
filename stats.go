@@ -1,13 +1,19 @@
 package main
 
 import (
+	"fmt"
 	"io/ioutil"
+	"os"
 	"strings"
 )
 
 func changePlayerName(newName string) {
 
-	input, _ := ioutil.ReadFile("stats.txt")
+	input, err := ioutil.ReadFile("stats.txt")
+	if err != nil {
+		fmt.Println("Error: ", err)
+		os.Exit(1)
+	}
 	lines := strings.Split(string(input), "\n")
 	lines[1] = newName
 	output := strings.Join(lines, "\n")
@@ -15,6 +21,6 @@ func changePlayerName(newName string) {
 
 }
 
-func updateStats() {
+func updateStats(victory bool) {
 
 }
