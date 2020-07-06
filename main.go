@@ -40,11 +40,13 @@ func main() {
 		deck1, card1 = deck1.removeCardByIndex(cardIndex - 1)
 		deck2, card2 = deck2.removeCardByIndex(rand.Intn(currentHandSize))
 		currentHandSize--
-		if playGame(card1, card2) == true {
+		result := playGame(card1, card2)
+		if result == 1 {
 			score1++
-		} else {
+		} else if result == 0 {
 			score2++
 		}
+		time.Sleep(2 * time.Second)
 	}
 
 	fmt.Println("\nCalculating results...")

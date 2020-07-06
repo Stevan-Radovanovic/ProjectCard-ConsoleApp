@@ -47,7 +47,7 @@ func (d deck) removeCardByIndex(index int) (deck, string) {
 	return d, removed
 }
 
-func playGame(card1 string, card2 string) bool {
+func playGame(card1 string, card2 string) int {
 	split1 := strings.Split(card1, " ")
 	split2 := strings.Split(card2, " ")
 	fmt.Println("\nYou chose: ", card1)
@@ -56,10 +56,13 @@ func playGame(card1 string, card2 string) bool {
 	value2, _ := strconv.Atoi(split2[1])
 	if value1 > value2 {
 		fmt.Println("\nYou won this round!")
-		return true
+		return 1
+	} else if value1 == value2 {
+		fmt.Println("\nIt's a draw!")
+		return 0
 	}
 
 	fmt.Println("\nYou lost this round!")
-	return false
+	return -1
 
 }
