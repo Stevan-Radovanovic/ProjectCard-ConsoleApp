@@ -47,13 +47,23 @@ func (d deck) removeCardByIndex(index int) (deck, string) {
 	return d, removed
 }
 
-func playGame(card1 string, card2 string) int {
+func playGame(card1 string, card2 string, gameMode string) int {
 	split1 := strings.Split(card1, " ")
 	split2 := strings.Split(card2, " ")
 	fmt.Println("\nYou chose: ", card1)
 	fmt.Println("Your opponent chose: ", card2)
-	value1, _ := strconv.Atoi(split1[1])
-	value2, _ := strconv.Atoi(split2[1])
+
+	var value1 int
+	var value2 int
+
+	if gameMode == "A" || gameMode == "a" {
+		value1, _ = strconv.Atoi(split1[1])
+		value2, _ = strconv.Atoi(split2[1])
+	} else {
+		value1, _ = strconv.Atoi(split1[4])
+		value2, _ = strconv.Atoi(split2[4])
+	}
+
 	if value1 > value2 {
 		fmt.Println("\nYou won this round!")
 		return 1

@@ -15,6 +15,7 @@ func main() {
 	var card2 string
 	score1 := 0
 	score2 := 0
+	var gameMode string
 
 	fmt.Println("\nStarting...")
 	rand.Seed(time.Now().UnixNano())
@@ -30,6 +31,13 @@ func main() {
 	fmt.Println("\nGame is starting...")
 	time.Sleep(3 * time.Second)
 
+	fmt.Println("Choose your game mode! A/a for Attack, D/d for Defence")
+	fmt.Scanf("%v\n", &gameMode)
+	fmt.Println(gameMode)
+
+	fmt.Println("\nConfiguring game mode...")
+	time.Sleep(2 * time.Second)
+
 	for i := 0; i < handsize; i++ {
 		deck1.showDeck()
 		time.Sleep(2 * time.Second)
@@ -40,7 +48,7 @@ func main() {
 		deck1, card1 = deck1.removeCardByIndex(cardIndex - 1)
 		deck2, card2 = deck2.removeCardByIndex(rand.Intn(currentHandSize))
 		currentHandSize--
-		result := playGame(card1, card2)
+		result := playGame(card1, card2, gameMode)
 		if result == 1 {
 			score1++
 		} else if result == 0 {
