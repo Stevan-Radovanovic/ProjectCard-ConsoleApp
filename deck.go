@@ -10,6 +10,7 @@ import (
 type deck []string
 
 func (d deck) showDeck() {
+	fmt.Println()
 	for i, card := range d {
 		fmt.Println(i+1, card)
 	}
@@ -50,7 +51,7 @@ func playGame(card1 string, card2 string) bool {
 	split1 := strings.Split(card1, " ")
 	split2 := strings.Split(card2, " ")
 	fmt.Println("\nYou chose: ", card1)
-	fmt.Println("\nYour opponent chose: ", card2)
+	fmt.Println("Your opponent chose: ", card2)
 	value1, _ := strconv.Atoi(split1[1])
 	value2, _ := strconv.Atoi(split2[1])
 	if value1 > value2 {

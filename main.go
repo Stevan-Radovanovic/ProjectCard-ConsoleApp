@@ -21,18 +21,22 @@ func main() {
 
 	fmt.Println("\nInitializing Ultimate Deck...")
 	cards := initializeUltimateDeck()
+	time.Sleep(4 * time.Second)
 
 	fmt.Println("\nGenerating hands...")
 	deck1, deck2 := cards.generateHand(handsize)
+	time.Sleep(4 * time.Second)
 
 	fmt.Println("\nGame is starting...")
+	time.Sleep(3 * time.Second)
 
 	for i := 0; i < handsize; i++ {
 		deck1.showDeck()
+		time.Sleep(2 * time.Second)
 		fmt.Println("\nChoose a card by index: ")
 		fmt.Scanf("%d\n", &cardIndex)
-		fmt.Println("\nCard index: ", cardIndex)
 		fmt.Println("\nYour opponent is choosing...")
+		time.Sleep(3 * time.Second)
 		deck1, card1 = deck1.removeCardByIndex(cardIndex - 1)
 		deck2, card2 = deck2.removeCardByIndex(rand.Intn(currentHandSize))
 		currentHandSize--
@@ -44,6 +48,7 @@ func main() {
 	}
 
 	fmt.Println("\nCalculating results...")
+	time.Sleep(4 * time.Second)
 	if score1 > score2 {
 		fmt.Println("\nCongratulations, you've won!")
 	} else {
