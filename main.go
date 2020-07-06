@@ -31,9 +31,8 @@ func main() {
 	fmt.Println("\nGame is starting...")
 	time.Sleep(1 * time.Second)
 
-	fmt.Println("Choose your game mode! A/a for Attack, D/d for Defence")
+	fmt.Println("\nChoose your game mode! A/a for Attack, D/d for Defence")
 	fmt.Scanf("%v\n", &gameMode)
-	fmt.Println(gameMode)
 
 	fmt.Println("\nConfiguring game mode...")
 	time.Sleep(1 * time.Second)
