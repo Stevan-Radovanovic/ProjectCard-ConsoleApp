@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"math/rand"
 	"strconv"
+	"strings"
 )
 
 type deck []string
@@ -46,5 +47,17 @@ func (d deck) removeCardByIndex(index int) (deck, string) {
 }
 
 func playGame(card1 string, card2 string) bool {
-	return true
+	split1 := strings.Split(card1, " ")
+	split2 := strings.Split(card2, " ")
+	fmt.Println("\nYou chose: ", card1)
+	fmt.Println("\nYour opponent chose: ", card2)
+	value1, _ := strconv.Atoi(split1[1])
+	value2, _ := strconv.Atoi(split2[1])
+	if value1 > value2 {
+		fmt.Println("\nYou won this round!")
+		return true
+	} else {
+		fmt.Println("\nYou lost this round!")
+		return false
+	}
 }
