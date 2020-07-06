@@ -56,4 +56,7 @@ func main() {
 	} else {
 		fmt.Println("\nOh no, you've lost!")
 	}
+
+	fmt.Println("\nUpdating High Scores...")
+	updateStats(score1 > score2)
 }
