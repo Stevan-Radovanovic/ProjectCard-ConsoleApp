@@ -35,3 +35,11 @@ func (d deck) generateHand(handSize int) (deck, deck) {
 	range2 := rand.Intn(50 - handSize)
 	return d[range1 : range1+handSize], d[range2 : range2+handSize]
 }
+
+func (d deck) removeCardByIndex(index int) string {
+	return ""
+}
+
+func playGame(card1 string, card2 string) bool {
+	return true
+}
