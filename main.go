@@ -21,7 +21,8 @@ func main() {
 	rand.Seed(time.Now().UnixNano())
 
 	fmt.Println("\nInitializing Ultimate Deck...")
-	cards := initializeUltimateDeck()
+	var cards deck
+	(&cards).initializeUltimateDeck()
 	time.Sleep(1 * time.Second)
 
 	fmt.Println("\nGenerating hands...")

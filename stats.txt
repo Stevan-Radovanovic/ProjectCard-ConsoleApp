@@ -1,12 +1,12 @@
 Player Name:
 Stevan Radovanovic
 Games Played:
-5
+6
 Games Won:
 2
 Games Drawn:
 1
 Games Lost:
-2
+3
 Final Value Total Score:
--1
+-3

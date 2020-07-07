@@ -4,7 +4,8 @@ import "testing"
 
 func TestInitializeUltimateDeck(t *testing.T) {
 
-	d := initializeUltimateDeck()
+	var cards deck
+	cards.initializeUltimateDeck()
 
 	if len(d) != 50 {
 		t.Errorf("Error regarding the length of the deck")

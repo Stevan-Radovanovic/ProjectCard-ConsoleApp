@@ -19,21 +19,19 @@ func (d deck) showDeck() {
 	}
 }
 
-func (d deck) newCard() card {
+func newCard() card {
 	attack := rand.Intn(15) + 1
 	defence := rand.Intn(15) + 1
 	newCard := card{attack: attack, defence: defence}
 	return newCard
 }
 
-func initializeUltimateDeck() deck {
+func (d *deck) initializeUltimateDeck() {
 
-	var d deck
 	for i := 0; i < 50; i++ {
-		d = append(d, d.newCard())
+		*d = append(*d, newCard())
 	}
 
-	return d
 }
 
 func (d deck) generateHand(handSize int) (deck, deck) {
