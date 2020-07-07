@@ -3,8 +3,16 @@ package main
 import (
 	"fmt"
 	"math/rand"
+	"os"
+	"os/exec"
 	"time"
 )
+
+func clear() {
+	cmd := exec.Command("cmd", "/c", "cls")
+	cmd.Stdout = os.Stdout
+	cmd.Run()
+}
 
 func main() {
 
@@ -24,6 +32,7 @@ func main() {
 	var cards deck
 	cards.initializeUltimateDeck()
 	time.Sleep(1 * time.Second)
+	clear()
 
 	fmt.Println("\nGenerating hands...")
 	deck1, deck2 := cards.generateHand(handsize)
