@@ -50,3 +50,7 @@ func updateStats(finalValue int) {
 	output := strings.Join(lines, "\n")
 	ioutil.WriteFile("stats.txt", []byte(output), 0644)
 }
+
+func printStats() {
+
+}
