@@ -22,7 +22,7 @@ func main() {
 
 	fmt.Println("\nInitializing Ultimate Deck...")
 	var cards deck
-	(&cards).initializeUltimateDeck()
+	cards.initializeUltimateDeck()
 	time.Sleep(1 * time.Second)
 
 	fmt.Println("\nGenerating hands...")
