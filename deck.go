@@ -15,7 +15,7 @@ type deck []card
 func (d deck) showDeck() {
 	fmt.Println()
 	for i, card := range d {
-		fmt.Println(i+1, card)
+		fmt.Printf("[%d] Attack: [%2d] | Defence: [%2d]\n", i+1, card.attack, card.defence)
 	}
 }
 
