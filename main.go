@@ -11,8 +11,8 @@ func main() {
 	handsize := 5
 	currentHandSize := 5
 	var cardIndex int
-	var card1 string
-	var card2 string
+	var card1 card
+	var card2 card
 	score1 := 0
 	score2 := 0
 	var gameMode string

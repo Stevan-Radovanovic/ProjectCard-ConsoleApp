@@ -3,11 +3,14 @@ package main
 import (
 	"fmt"
 	"math/rand"
-	"strconv"
-	"strings"
 )
 
-type deck []string
+type card struct {
+	attack  int
+	defence int
+}
+
+type deck []card
 
 func (d deck) showDeck() {
 	fmt.Println()
@@ -16,10 +19,11 @@ func (d deck) showDeck() {
 	}
 }
 
-func (d deck) newCard() string {
+func (d deck) newCard() card {
 	attack := rand.Intn(15) + 1
 	defence := rand.Intn(15) + 1
-	return "Attack: " + strconv.Itoa(attack) + " | Defence: " + strconv.Itoa(defence)
+	newCard := card{attack: attack, defence: defence}
+	return newCard
 }
 
 func initializeUltimateDeck() deck {
@@ -38,18 +42,17 @@ func (d deck) generateHand(handSize int) (deck, deck) {
 	return d[range1 : range1+handSize], d[range2 : range2+handSize]
 }
 
-func (d deck) removeCardByIndex(index int) (deck, string) {
+func (d deck) removeCardByIndex(index int) (deck, card) {
 
 	removed := d[index]
 	copy(d[index:], d[index+1:])
-	d[len(d)-1] = ""
+	//d[len(d)-1] =
 	d = d[:len(d)-1]
 	return d, removed
 }
 
-func playGame(card1 string, card2 string, gameMode string) int {
-	split1 := strings.Split(card1, " ")
-	split2 := strings.Split(card2, " ")
+func playGame(card1 card, card2 card, gameMode string) int {
+
 	fmt.Println("\nYou chose: ", card1)
 	fmt.Println("Your opponent chose: ", card2)
 
@@ -57,11 +60,11 @@ func playGame(card1 string, card2 string, gameMode string) int {
 	var value2 int
 
 	if gameMode == "A" || gameMode == "a" {
-		value1, _ = strconv.Atoi(split1[1])
-		value2, _ = strconv.Atoi(split2[1])
+		value1 = card1.attack
+		value2 = card2.defence
 	} else {
-		value1, _ = strconv.Atoi(split1[4])
-		value2, _ = strconv.Atoi(split2[4])
+		value1 = card1.defence
+		value2 = card2.attack
 	}
 
 	if value1 > value2 {
