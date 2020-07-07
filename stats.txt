@@ -1,11 +1,11 @@
 Player Name:
-Stevan Radovanovic
+Petard
 Games Played:
-9
+10
 Games Won:
 3
 Games Drawn:
-1
+2
 Games Lost:
 5
 Final Value Total Score:

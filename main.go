@@ -49,7 +49,7 @@ func main() {
 		case 3:
 			printStats()
 		case 4:
-			changePlayerName("test")
+			changePlayerName()
 		case 5:
 			{
 				fmt.Println("Bye!")

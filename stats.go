@@ -8,14 +8,17 @@ import (
 	"strings"
 )
 
-func changePlayerName(newName string) {
+func changePlayerName() {
 
+	var newName string
 	input, err := ioutil.ReadFile("stats.txt")
 	if err != nil {
 		fmt.Println("Error: ", err)
 		os.Exit(1)
 	}
 	lines := strings.Split(string(input), "\n")
+	fmt.Println("Choose a new PlayerName: ")
+	fmt.Scanf("%s\n", &newName)
 	lines[1] = newName
 	output := strings.Join(lines, "\n")
 	ioutil.WriteFile("stats.txt", []byte(output), 0644)

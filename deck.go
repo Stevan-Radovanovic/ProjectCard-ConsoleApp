@@ -51,8 +51,8 @@ func (d deck) removeCardByIndex(index int) (deck, card) {
 
 func playGame(card1 card, card2 card, gameMode string) int {
 
-	fmt.Println("\nYou chose: ", card1)
-	fmt.Println("Your opponent chose: ", card2)
+	fmt.Printf("\nYou chose: Attack: [%2d] | Defence: [%2d]\n", card1.attack, card1.defence)
+	fmt.Printf("Your opponent chose: Attack: [%2d] | Defence: [%2d]\n", card2.attack, card2.defence)
 
 	var value1 int
 	var value2 int
