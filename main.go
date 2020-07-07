@@ -22,8 +22,8 @@ func main() {
 	fmt.Println("\nWelcome to ProjectCard!")
 	fmt.Println("\nPress ENTER to continue...")
 	fmt.Scanf("\n")
-	clear()
 	for {
+		clear()
 		var choice int
 		fmt.Print("Pro")
 		time.Sleep(1 * time.Second)
@@ -51,7 +51,12 @@ func main() {
 		case 4:
 			changePlayerName("test")
 		case 5:
-			break
+			{
+				fmt.Println("Bye!")
+				fmt.Print("Press ENTER to exit...")
+				fmt.Scanf("\n")
+				return
+			}
 		default:
 			{
 				fmt.Print("Wrong entry, press ENTER to continue...")
@@ -122,4 +127,6 @@ func round(mode string) {
 
 	fmt.Println("\nUpdating High Scores...")
 	updateStats(finalValue)
+	fmt.Print("Press ENTER to continue...")
+	fmt.Scanf("\n")
 }
