@@ -24,15 +24,9 @@ func main() {
 	fmt.Scanf("\n")
 	for {
 		clear()
+		rand.Seed(time.Now().UTC().UnixNano())
 		var choice int
-		fmt.Print("Pro")
-		time.Sleep(1 * time.Second)
-		fmt.Print("ject")
-		time.Sleep(1 * time.Second)
-		fmt.Print("Card")
-		time.Sleep(1 * time.Second)
-		fmt.Print("!")
-		time.Sleep(1 * time.Second)
+		showTitle()
 		fmt.Println("\n1. Play an Attack Round")
 		fmt.Println("2. Play a Defence Round")
 		fmt.Println("3. See Stats")
@@ -64,6 +58,16 @@ func main() {
 			}
 		}
 	}
+}
+
+func showTitle() {
+
+	title := "ProjectCard!"
+	for i := 0; i < len(title); i++ {
+		fmt.Print(string(title[i]))
+		time.Sleep(100 * time.Millisecond)
+	}
+
 }
 
 func round(mode string) {
