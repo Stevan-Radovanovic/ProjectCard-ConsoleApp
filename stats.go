@@ -52,5 +52,12 @@ func updateStats(finalValue int) {
 }
 
 func printStats() {
-
+	input, err := ioutil.ReadFile("stats.txt")
+	if err != nil {
+		fmt.Println("Error: ", err)
+		os.Exit(1)
+	}
+	fmt.Println(string(input))
+	fmt.Println("Pres ENTER to continue...")
+	fmt.Scanf("\n")
 }
